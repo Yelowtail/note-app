@@ -6,7 +6,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Familjen Grotesk', sans-serif;
-  z-index: 0;
 }
 
 header {
@@ -27,14 +26,14 @@ header {
 }
 
 .menu-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5625rem;
-  pad: 1.25rem;
-  padding-top: 1.5625rem;
-  color: white;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5625rem;
+    pad: 1.25rem;
+    padding-top: 1.5625rem;
+    color: white;
 }
 
 #toggler{
@@ -51,7 +50,7 @@ header {
     height: auto;
     max-height: 0;
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: max-height 0.5s ease;
     -moz-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -59,10 +58,30 @@ header {
 
 #toggler:checked ~ .menu{
     max-height: 200px;
-    z-index: 1;
 }
 
-.logo-nav{
+.logo-nav, .logo{
     font-family: 'Chakra Petch', sans-serif;
     font-size: 25px;
 }
+
+.logo{
+    font-size: 35px;
+}
+
+.header{
+    height: 250px;
+    background-image: url('../images/fondo-notas-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.header-container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -5,15 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/1.35.0/iconfont/tabler-icons.min.css" integrity="sha512-tpsEzNMLQS7w9imFSjbEOHdZav3/aObSESAL1y5jyJDoICFF2YwEdAHOPdOr1t+h8hTzar0flphxR76pd0V1zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/1.35.0/iconfont/tabler-icons.min.css"
+      integrity="sha512-tpsEzNMLQS7w9imFSjbEOHdZav3/aObSESAL1y5jyJDoICFF2YwEdAHOPdOr1t+h8hTzar0flphxR76pd0V1zQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>App de Notas</title>
   </head>
   <body>
-    <header>
+    
+    <header class="header">
       <nav class="navbar">
         <span class="logo-nav">{NoteApp}</span>
-        <input type="checkbox" name="toggler" id="toggler">
+        <input type="checkbox" name="toggler" id="toggler" />
         <label for="toggler" class="fa-solid fa-bars"></label>
         <div class="menu">
           <ul class="menu-list">
@@ -23,12 +36,11 @@
           </ul>
         </div>
       </nav>
-
-      <div class="header">
-        <span class="logo"></span>
-        <h3>Tus Notas organizadas y en un solo lugar</h3>
+      <section class="header-container">
+        <span class="logo">{NoteApp}</span>
+        <h3>Tus notas organizadas y en un solo lugar</h3>
         <p>Crea, modifica y completa tus tareas</p>
-      </div>
+      </section>
     </header>
 
     <main>
@@ -40,7 +52,7 @@
         </tr>
       </table>
 
-      <button class="add-note"></button>
+      <button class="add-note fa-solid fa-circle-plus"><i class=""></i></button>
     </main>
 
     <footer>
