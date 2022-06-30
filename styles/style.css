@@ -9,13 +9,14 @@
 }
 
 body {
-  background: linear-gradient(-45deg, #050206, #3b3b3b);
+    background: linear-gradient(to left,#050206,#3b3b3b);
 }
 
 .navbar {
   display: flex;
   position: fixed;
   top: 0;
+  z-index: 3;
   width: 100%;
   flex-wrap: wrap;
   align-items: center;
@@ -24,11 +25,7 @@ body {
   padding-right: 1.875rem;
   color: white;
   border-radius: 0 0 15px 15px;
-}
-
-.is-pinned {
-  z-index: 3;
-  background: linear-gradient(45deg,#3b3b3b,#050206);
+  background: linear-gradient(to left,#050206,#3b3b3b);
 }
 
 .menu-list {
@@ -40,6 +37,7 @@ body {
   pad: 1.25rem;
   padding-top: 1.5625rem;
   color: white;
+
 }
 
 #toggler {
@@ -57,9 +55,9 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
+  -moz-transition: max-height 0.5s ease;
+  -webkit-transition: max-height 0.5s ease;
+  -o-transition: max-height 0.5s ease;
 }
 
 #toggler:checked ~ .menu {
@@ -83,7 +81,7 @@ body {
   width: 100%;
   flex-direction: column;
   height: 200px;
-  color: aqua;
+  color: white;
 }
 
 .header-container {
@@ -102,6 +100,6 @@ main {
   margin-top: 200px;
   z-index: 2;
   background: #fff;
-  border-radius: 15px 15px 0 0;
+  border-radius: 15px;
   height: 100vh;
 }
