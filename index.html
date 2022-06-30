@@ -22,21 +22,20 @@
     <title>App de Notas</title>
   </head>
   <body>
+    <nav class="navbar">
+      <span class="logo-nav">{NoteApp}</span>
+      <input type="checkbox" name="toggler" id="toggler" />
+      <label for="toggler" class="fa-solid fa-bars"></label>
+      <div class="menu">
+        <ul class="menu-list">
+          <li>Inicio</li>
+          <li>Crear Nota</li>
+          <li>Mis Notas</li>
+        </ul>
+      </div>
+    </nav>
     
     <header class="header">
-      <nav class="navbar">
-        <span class="logo-nav">{NoteApp}</span>
-        <input type="checkbox" name="toggler" id="toggler" />
-        <label for="toggler" class="fa-solid fa-bars"></label>
-        <div class="menu">
-          <ul class="menu-list">
-            <li>Inicio</li>
-            <li>Crear Nota</li>
-            <li>Mis Notas</li>
-          </ul>
-        </div>
-      </nav>
-      <div class="bottom-navbar"></div>
       <section class="header-container">
         <!-- <span class="logo">{NoteApp}</span> -->
         <h3>Tus notas organizadas y en un solo lugar</h3>

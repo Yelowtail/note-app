@@ -14,8 +14,10 @@ body {
 
 .navbar {
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
   flex-wrap: wrap;
-  position: relative;
   align-items: center;
   justify-content: space-between;
   padding: 0.9375rem;
@@ -25,15 +27,8 @@ body {
 }
 
 .is-pinned {
-  position: sticky;
-  z-index: 99999;
-  top: 0;
-  background: linear-gradient(-45deg, #050206, #3b3b3b);
-}
-
-.bottom-navbar {
-  height: 1px;
-  background-color: blue;
+  z-index: 3;
+  background: linear-gradient(45deg,#3b3b3b,#050206);
 }
 
 .menu-list {
