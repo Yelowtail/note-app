@@ -21,16 +21,16 @@
     />
     <title>App de Notas</title>
   </head>
-  <body>
+  <body id="body">
     <nav class="navbar">
       <span class="logo-nav">{NoteApp}</span>
       <input type="checkbox" name="toggler" id="toggler" />
       <label for="toggler" class="fa-solid fa-bars"></label>
       <div class="menu">
         <ul class="menu-list">
-          <li>Inicio</li>
-          <li>Crear Nota</li>
-          <li>Mis Notas</li>
+          <li><a class="inicio" href="#">Inicio</a></li>
+          <li><a class="crear" href="#">Crear Nota</a></li>
+          <li><a class="mis-notas" href="#">Mis Notas</a></li>
         </ul>
       </div>
     </nav>
@@ -44,21 +44,68 @@
     </header>
 
     <main>
-      <h2 class="">Mis Notas</h2>
+      <h2 class="title-notas">Mis Notas</h2>
 
       <table class="notas">
-        <tr>
-          <td><input type="checkbox" name="completa" id="complete" /></td>
-        </tr>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nota</th>
+            <th>descripicion</th>
+            <th>Fecha de creacion</th>
+            <th>Fecha de finalizacion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" name="complete-note" id=""></td>
+            <td>Hacer tarea</td>
+            <td>tarea de matematicas, sumas, restas, </td>
+            <td>12/05/2022 18:32</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="complete-note" id=""></td>
+            <td>Hacer tarea</td>
+            <td>tarea de matematicas, sumas, restas, </td>
+            <td>12/05/2022 18:32</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" name="complete-note" id=""></td>
+            <td>Hacer tarea</td>
+            <td>tarea de matematicas, sumas, restas, </td>
+            <td>12/05/2022 18:32</td>
+            <td></td>
+          </tr>
+        </tbody>
       </table>
 
       <button class="add-note fa-solid fa-circle-plus"><i class=""></i></button>
+      
     </main>
+    
+    <section class="vent-emergente">
+      <div class="add-form">
+        <span>Agregar Nota</span>
+        <form action="" method="post">
+          <label for="Nota">Titulo</label>
+          <input type="text" name="Nota" id="Nota">
+          <label for="Descripcion">Descripcion</label>
+          <input type="text" name="Descripcion" id="Descripcion">
+          <div class="buttons">
+            <button class="cancelar" type="button">Cancelar</button>
+            <button class="agregar" type="button">Agrgar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    
 
     <footer>
       <div class="info-contact">
-        <span class="title">Correo Electronico</span>
-        <span class="mail"></span>
+        <span class="title">Correo Electronico:</span>
+        <span class="mail">xavi.debegnach@gmail.com</span>
       </div>
       <div class="copyright">
         <p>Todos los derechos reservados a Xavier Debegnach</p>
