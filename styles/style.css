@@ -8,7 +8,7 @@
   font-family: "Familjen Grotesk", sans-serif;
 }
 
-a{
+a {
   color: #fff;
   text-decoration: none;
 }
@@ -132,9 +132,9 @@ tbody tr:nth-child(even) {
   background-color: #f6f6f6;
 }
 
-tbody tr td{
+tbody tr td {
   max-width: 80px;
-  padding: 5px ;
+  padding: 5px;
   overflow-wrap: break-word;
 }
 
@@ -147,7 +147,7 @@ tbody tr td{
   margin-top: -25px;
   border-style: none;
   background-color: transparent;
-border-radius: 50%;
+  border-radius: 50%;
   font-size: 50px;
   color: #050206;
   box-shadow: 3px 3px 8px rgba(33, 41, 52, 0.5);
@@ -176,7 +176,7 @@ border-radius: 50%;
   z-index: 999;
 }
 
-.active{
+.active {
   display: flex;
 }
 
@@ -197,39 +197,39 @@ border-radius: 50%;
   font-size: 20px;
 }
 
-.add-form form{
+.add-form form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.add-form .buttons{
+.add-form .buttons {
   display: flex;
   justify-content: space-between;
 }
 
-.add-form .buttons button{
+.add-form .buttons button {
   padding: 10px 20px;
   border-radius: 13px;
   border: none;
   color: white;
 }
 
-.add-form [type='text']{
+.add-form [type="text"] {
   height: 30px;
   border: 1px solid #3b3b3b;
   border-radius: 5px;
 }
 
-.agregar{
+.agregar {
   background-color: #3b3b3b;
 }
 
-.cancelar{
+.cancelar {
   background-color: #050206;
 }
 
-footer{
+footer {
   display: flex;
   flex-direction: column;
   background-color: #fff;
