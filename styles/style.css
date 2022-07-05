@@ -113,30 +113,6 @@ main {
   gap: 35px;
 }
 
-.title-notas {
-  margin-top: 25px;
-}
-
-.notas {
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
-  gap: 10px;
-}
-
-thead {
-  border-bottom: 1px solid #3b3b3b55;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f6f6f6;
-}
-
-tbody tr td {
-  max-width: 80px;
-  padding: 5px;
-  overflow-wrap: break-word;
-}
 
 .add-note {
   position: fixed;
