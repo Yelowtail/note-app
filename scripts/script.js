@@ -27,14 +27,6 @@ inicio.addEventListener('click', () => {
 })
 
 agregarBtn.addEventListener("click", () => {
-  let tr = document.createElement("tr");
-  let checkbox = document.createElement("td");
-  let titulo = document.createElement("td");
-  let descripcion = document.createElement("td");
-  let creacion = document.createElement("td");
-  let finalizacion = document.createElement("td");
-  let input = document.createElement("input");
-
   const date = new Date();
   let fecha = `${String(date.getDate()).padStart(2, "0")}/${String(
     date.getMonth()
