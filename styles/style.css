@@ -113,30 +113,6 @@ main {
   gap: 35px;
 }
 
-.title-notas {
-  margin-top: 25px;
-}
-
-.notas {
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
-  gap: 10px;
-}
-
-thead {
-  border-bottom: 1px solid #3b3b3b55;
-}
-
-tbody tr:nth-child(even) {
-  background-color: #f6f6f6;
-}
-
-tbody tr td {
-  max-width: 80px;
-  padding: 5px;
-  overflow-wrap: break-word;
-}
 
 .add-note {
   position: fixed;
@@ -162,7 +138,7 @@ tbody tr td {
   margin-left: -24px;
 }
 
-.vent-emergente {
+[class^='vent-emergente-'] {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -176,11 +152,13 @@ tbody tr td {
   z-index: 999;
 }
 
+
+
 .active {
   display: flex;
 }
 
-.add-form {
+[class^='add-form-'] {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -190,38 +168,39 @@ tbody tr td {
   border-radius: 15px;
 }
 
-.add-form span {
+[class^='add-form-'] span {
   justify-self: flex-start;
   padding-bottom: 20px;
   font-weight: 700;
   font-size: 20px;
 }
 
-.add-form form {
+[class^='add-form-'] form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.add-form .buttons {
+[class^='add-form-'] .buttons {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
-.add-form .buttons button {
+[class^='add-form-'] .buttons button {
   padding: 10px 20px;
   border-radius: 13px;
   border: none;
   color: white;
 }
 
-.add-form [type="text"] {
+[class^='add-form-'] [type="text"] {
   height: 30px;
   border: 1px solid #3b3b3b;
   border-radius: 5px;
 }
 
-.agregar {
+.agregar, .modificar {
   background-color: #3b3b3b;
 }
 

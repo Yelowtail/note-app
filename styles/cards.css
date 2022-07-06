@@ -1,0 +1,80 @@
+
+.note-btns [class^='btn-']{
+  font-size: 1.875rem;
+}
+
+.btn:hover{
+  cursor: pointer;
+  text-shadow: 2px 2px 7px rgba(33, 41, 52, 0.8);
+}
+
+[class^='nota-']{
+  background-color: #fff;
+  border-radius: .9375rem;
+  max-width: 100%;
+  box-shadow: .1875rem .1875rem .5rem rgba(33, 41, 52, 0.5),
+             -0.1875rem -0.1875rem .5rem rgba(33, 41, 52, 0.5);
+  padding: 1.25rem;
+  display: flex;
+  gap: 1.5625rem;
+}
+
+.spans, .note-btns{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .9375rem;
+}
+
+.vertical-bar{
+  background-color: #3b3b3b;
+  width: .0625rem;
+}
+
+.note-btns{
+  border-left: .1rem solid #3b3b3b;
+  width: 3.125rem;
+  padding-left: .9375rem;
+}
+
+.note-title{
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.spans{
+  max-width: 250px;
+}
+
+.note-cont{
+  position: relative;
+  top: -0.9375rem;
+  max-height: 80px;
+  overflow-y: scroll;
+}
+
+.note-cont, .note-title{
+  max-width: 80%;
+}
+
+i:nth-child(1){
+  color: #44bf3b;
+}
+
+i:nth-child(2){
+  color: #bf423b;
+}
+
+.note-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: break-word;
+  gap: 3.125rem;
+  max-width: 80%;
+}
+
