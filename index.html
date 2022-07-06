@@ -48,9 +48,21 @@
       <h2 class="title-notas">Mis Notas</h2>
 
       <div class="note-container">
+        <div class="nota-0">
+          <div class="spans">
+            <span class="note-title">Nota 1</span>
+            <span class="note-cont">Contenido de la nota</span>
+          </div>
+          <div class="note-btns">
+            <i class="btn-finalizar fa-regular fa-circle-check"></i>
+            <i class="btn-eliminar fa-regular fa-trash-can"></i>
+            <i class="btn-modificar fa-regular fa-pen-to-square"></i>
+          </div>
+        </div>
+
         <div class="nota-1">
           <div class="spans">
-            <span class="note-title">Titulo</span>
+            <span class="note-title">Nota 2</span>
             <span class="note-cont">Contenido de la nota</span>
           </div>
           <div class="note-btns">
@@ -64,17 +76,33 @@
       <button class="add-note fa-solid fa-circle-plus"></button>
     </main>
 
-    <section class="vent-emergente">
-      <div class="add-form">
+    <section class="vent-emergente-agregar">
+      <div class="add-form-agregar">
         <span>Agregar Nota</span>
         <form action="" method="post">
           <label for="Nota">Titulo</label>
-          <input type="text" name="Nota" id="Nota" maxlength="50" />
-          <label for="Descripcion">Descripcion</label>
-          <input type="text" name="Descripcion" id="Descripcion" />
+          <input type="text" name="Nota" id="Nota-agregar" maxlength="50" />
+          <label for="Contenido">Contenido</label>
+          <input type="text" name="Contenido" id="Contenido-agregar" />
           <div class="buttons">
             <button class="cancelar" type="button">Cancelar</button>
             <button class="agregar" type="button">Agrgar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    
+    <section class="vent-emergente-modificar">
+      <div class="add-form-modificar">
+        <span>Modificar Nota</span>
+        <form action="" method="post">
+          <label for="Nota">Titulo</label>
+          <input type="text" name="Nota" id="Nota-modificar" maxlength="50" />
+          <label for="Contenido">Contenido</label>
+          <input type="text" name="Contenido" id="Contenido-modificar" />
+          <div class="buttons">
+            <button class="cancelar" type="button">Cancelar</button>
+            <button class="modificar" type="button">Modificar</button>
           </div>
         </form>
       </div>
