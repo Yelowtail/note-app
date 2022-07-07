@@ -5,20 +5,31 @@ let modificarBtn = document.querySelector(".modificar");
 let eliminarBtn = document.querySelector(".eliminar");
 let crear = document.querySelector(".crear");
 let inicio = document.querySelector(".inicio");
-let ventActive = ''
-
+let ventActive = "";
 let idMod = null;
 
+let notas = [];
+
+function crearNota(titulo, contenido, creacion) {
+  return { titulo, contenido, creacion, finalizacion: null };
+}
+
+function limpiarLista() {
+  let contenedor = document.querySelector(".note-container");
+  contenedor.innerHTML = "";
+}
+
 let cantNotas = document.querySelectorAll('div[class^="nota-"]').length;
-console.log(cantNotas);
 
 let btnsModificar = document.querySelectorAll(".btn-modificar");
 let btnsEliminar = document.querySelectorAll(".btn-eliminar");
 
 function actualizarDatos() {
+  console.log(notas)
   btnsModificar = document.querySelectorAll(".btn-modificar");
   btnsEliminar = document.querySelectorAll(".btn-eliminar");
-  cantNotas = document.querySelectorAll('div[class^="nota-"]').length;
+  let formAgregar = document.querySelector(".container-agregar form");
+  formAgregar.reset();
   btnsModificar.forEach((btn, idx) => {
     btn.addEventListener("click", () => {
       VentEmerg("modificar");
@@ -37,7 +48,7 @@ actualizarDatos();
 
 function VentEmerg(vent) {
   actualizarDatos();
-  ventActive = vent
+  ventActive = vent;
 
   let ventEmergente = document.querySelector(`.vent-emergente-${vent}`);
   ventEmergente.classList.toggle("active");
@@ -74,15 +85,7 @@ function leer(id) {
   document.querySelector(".vent-emergente-modificar").classList.add("active");
 }
 
-addNoteBtn.addEventListener("click", () => VentEmerg("agregar"));
-cancelBtn.forEach((btn) => {
-  btn.addEventListener("click", () => VentEmerg(ventActive));
-});
-crear.addEventListener("click", () => VentEmerg("agregar"));
-
-inicio.addEventListener("click", () => {});
-
-agregarBtn.addEventListener("click", () => {
+function getDate() {
   const date = new Date();
   let fecha = `${String(date.getDate()).padStart(2, "0")}/${String(
     date.getMonth()
@@ -90,22 +93,23 @@ agregarBtn.addEventListener("click", () => {
     date.getHours()
   ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
 
-  let inpTitulo = document.querySelector("#Nota-agregar");
-  let inpDesc = document.querySelector("#Contenido-agregar");
+  return fecha;
+}
 
+function agregarNota(notaParametro) {
   let nota = document.createElement("div");
   nota.classList.add(`nota-${cantNotas}`);
-  nota.id = `nota-${cantNotas}`
+  nota.id = `nota-${cantNotas}`;
 
   let spans = document.createElement("div");
   spans.classList.add("spans");
 
   let noteTitle = document.createElement("h4");
   noteTitle.classList.add("note-title");
-  noteTitle.textContent = inpTitulo.value;
+  noteTitle.textContent = notaParametro.titulo;
   let noteCont = document.createElement("p");
   noteCont.classList.add("note-cont");
-  noteCont.textContent = inpDesc.value;
+  noteCont.textContent = notaParametro.contenido;
 
   spans.append(noteTitle, noteCont);
 
@@ -128,10 +132,27 @@ agregarBtn.addEventListener("click", () => {
   let container = document.querySelector(".note-container");
   container.appendChild(nota);
 
-  inpTitulo.value = "";
-  inpDesc.value = "";
+  cantNotas++
 
   VentEmerg("agregar");
+}
+
+addNoteBtn.addEventListener("click", () => VentEmerg("agregar"));
+
+cancelBtn.forEach((btn) => {
+  btn.addEventListener("click", () => VentEmerg(ventActive));
+});
+
+crear.addEventListener("click", () => VentEmerg("agregar"));
+
+inicio.addEventListener("click", () => {});
+
+agregarBtn.addEventListener("click", () => {
+  let titulo = document.querySelector("#Nota-agregar").value;
+  let cont = document.querySelector("#Contenido-agregar").value;
+  let nota = crearNota(titulo, cont, getDate());
+  notas.push(nota);
+  agregarNota(nota);
 });
 
 modificarBtn.addEventListener("click", () => {
@@ -139,8 +160,8 @@ modificarBtn.addEventListener("click", () => {
   VentEmerg("modificar");
 });
 
-eliminarBtn.addEventListener('click', () => {
-  let nota = document.getElementById(`nota-${idMod}`)
-  nota.remove()
-  VentEmerg('eliminar')
-})
+eliminarBtn.addEventListener("click", () => {
+  let nota = document.getElementById(`nota-${idMod}`);
+  nota.remove();
+  VentEmerg("eliminar");
+});
