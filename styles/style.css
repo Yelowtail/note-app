@@ -158,7 +158,7 @@ main {
   display: flex;
 }
 
-[class^='add-form-'] {
+[class^='container-'] {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,39 +168,39 @@ main {
   border-radius: 15px;
 }
 
-[class^='add-form-'] span {
+[class^='container-'] span {
   justify-self: flex-start;
   padding-bottom: 20px;
   font-weight: 700;
   font-size: 20px;
 }
 
-[class^='add-form-'] form {
+[class^='container-'] form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-[class^='add-form-'] .buttons {
+[class^='container-'] .buttons {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-[class^='add-form-'] .buttons button {
+[class^='container-'] .buttons button {
   padding: 10px 20px;
   border-radius: 13px;
   border: none;
   color: white;
 }
 
-[class^='add-form-'] [type="text"] {
+[class^='container-'] [type="text"] {
   height: 30px;
   border: 1px solid #3b3b3b;
   border-radius: 5px;
 }
 
-.agregar, .modificar {
+.agregar, .modificar, .eliminar {
   background-color: #3b3b3b;
 }
 

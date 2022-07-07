@@ -51,6 +51,7 @@
 
 .note-cont{
   position: relative;
+  overflow-wrap: break-word;
   top: -0.9375rem;
   max-height: 80px;
   overflow-y: scroll;
