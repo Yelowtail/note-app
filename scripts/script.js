@@ -100,10 +100,10 @@ agregarBtn.addEventListener("click", () => {
   let spans = document.createElement("div");
   spans.classList.add("spans");
 
-  let noteTitle = document.createElement("span");
+  let noteTitle = document.createElement("h4");
   noteTitle.classList.add("note-title");
   noteTitle.textContent = inpTitulo.value;
-  let noteCont = document.createElement("span");
+  let noteCont = document.createElement("p");
   noteCont.classList.add("note-cont");
   noteCont.textContent = inpDesc.value;
 
