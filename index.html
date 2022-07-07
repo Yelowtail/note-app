@@ -48,7 +48,7 @@
       <h2 class="title-notas">Mis Notas</h2>
 
       <div class="note-container">
-        <div class="nota-0">
+        <div class="nota-0" id="nota-0">
           <div class="spans">
             <span class="note-title">Nota 1</span>
             <span class="note-cont">Contenido de la nota</span>
@@ -60,7 +60,7 @@
           </div>
         </div>
 
-        <div class="nota-1">
+        <div class="nota-1" id="nota-1">
           <div class="spans">
             <span class="note-title">Nota 2</span>
             <span class="note-cont">Contenido de la nota</span>
@@ -77,7 +77,7 @@
     </main>
 
     <section class="vent-emergente-agregar">
-      <div class="add-form-agregar">
+      <div class="container-agregar">
         <span>Agregar Nota</span>
         <form action="" method="post">
           <label for="Nota">Titulo</label>
@@ -93,7 +93,7 @@
     </section>
     
     <section class="vent-emergente-modificar">
-      <div class="add-form-modificar">
+      <div class="container-modificar">
         <span>Modificar Nota</span>
         <form action="" method="post">
           <label for="Nota">Titulo</label>
@@ -107,6 +107,16 @@
         </form>
       </div>
     </section>
+
+    <section class="vent-emergente-eliminar">
+      <div class="container-eliminar">
+        <span class="title-elim">¿Deseas Eliminar la nota?</span>
+        <div class="buttons">
+          <button class="cancelar" type="button">Cancelar</button>
+          <button class="eliminar" type="button">Eliminar</button>
+        </div>
+      </div>
+    </section> 
 
     <footer>
       <div class="info-contact">
