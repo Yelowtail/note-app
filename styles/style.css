@@ -200,7 +200,7 @@ main {
   border-radius: 5px;
 }
 
-.agregar, .modificar, .eliminar {
+.agregar, .modificar, .eliminar, .finalizar {
   background-color: #3b3b3b;
 }
 
