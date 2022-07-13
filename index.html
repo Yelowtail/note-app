@@ -5,48 +5,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/1.35.0/iconfont/tabler-icons.min.css" integrity="sha512-tpsEzNMLQS7w9imFSjbEOHdZav3/aObSESAL1y5jyJDoICFF2YwEdAHOPdOr1t+h8hTzar0flphxR76pd0V1zQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/cards.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/1.35.0/iconfont/tabler-icons.min.css"
+      integrity="sha512-tpsEzNMLQS7w9imFSjbEOHdZav3/aObSESAL1y5jyJDoICFF2YwEdAHOPdOr1t+h8hTzar0flphxR76pd0V1zQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>App de Notas</title>
   </head>
-  <body>
-    <header>
-      <nav class="navbar">
-        <span class="logo-nav">{NoteApp}</span>
-        <input type="checkbox" name="toggler" id="toggler">
-        <label for="toggler" class="fa-solid fa-bars"></label>
-        <div class="menu">
-          <ul class="menu-list">
-            <li>Inicio</li>
-            <li>Crear Nota</li>
-            <li>Mis Notas</li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="header">
-        <span class="logo"></span>
-        <h3>Tus Notas organizadas y en un solo lugar</h3>
-        <p>Crea, modifica y completa tus tareas</p>
+  <body id="body">
+    <nav class="navbar">
+      <span class="logo-nav">{NoteApp}</span>
+      <input type="checkbox" name="toggler" id="toggler" />
+      <label for="toggler" class="fa-solid fa-bars"></label>
+      <div class="menu">
+        <ul class="menu-list">
+          <li><a class="crear" href="#">Crear Nota</a></li>
+          <li><a class="mis-notas" href="#">Mis Notas</a></li>
+          <li><a class="notas-fin" href="#">Notas Finalizadas</a></li>
+        </ul>
       </div>
+    </nav>
+
+    <header class="header">
+      <section class="header-container">
+        <!-- <span class="logo">{NoteApp}</span> -->
+        <h3>Tus notas organizadas y en un solo lugar</h3>
+        <p>Crea, modifica y completa tus tareas</p>
+      </section>
     </header>
 
     <main>
-      <h2 class="">Mis Notas</h2>
+      <h2 class="title-notas">Mis Notas</h2>
 
-      <table class="notas">
-        <tr>
-          <td><input type="checkbox" name="completa" id="complete" /></td>
-        </tr>
-      </table>
+      <div class="note-container">
+        <!-- <div class="nota-0" id="nota-0">
+          <div class="spans">
+            <span class="note-title">Nota 1</span>
+            <span class="note-cont">Contenido de la nota</span>
+          </div>
+          <div class="note-btns">
+            <i class="btn-finalizar fa-regular fa-circle-check"></i>
+            <i class="btn-eliminar fa-regular fa-trash-can"></i>
+            <i class="btn-modificar fa-regular fa-pen-to-square"></i>
+          </div>
+        </div>
 
-      <button class="add-note"></button>
+        <div class="nota-1" id="nota-1">
+          <div class="spans">
+            <h4 class="note-title">Nota 2</h4>
+            <p class="note-cont">Contenido de la nota</p>
+          </div>
+          <div class="note-btns">
+            <i class="btn-finalizar fa-regular fa-circle-check"></i>
+            <i class="btn-eliminar fa-regular fa-trash-can"></i>
+            <i class="btn-modificar fa-regular fa-pen-to-square"></i>
+          </div>
+        </div> -->
+      </div>
+
+      <button class="add-note fa-solid fa-circle-plus"></button>
     </main>
+
+    <section class="vent-emergente-agregar">
+      <div class="container-agregar">
+        <span>Agregar Nota</span>
+        <form action="" method="post">
+          <label for="Nota">Titulo</label>
+          <input type="text" name="Nota" id="Nota-agregar" maxlength="50" required />
+          <label for="Contenido">Contenido</label>
+          <input type="text" name="Contenido" id="Contenido-agregar"  required/>
+          <div class="buttons">
+            <button class="cancelar" type="button">Cancelar</button>
+            <button class="agregar" type="button">Agrgar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    
+    <section class="vent-emergente-modificar">
+      <div class="container-modificar">
+        <span>Modificar Nota</span>
+        <form action="" method="post">
+          <label for="Nota">Titulo</label>
+          <input type="text" name="Nota" id="Nota-modificar" maxlength="50" />
+          <label for="Contenido">Contenido</label>
+          <input type="text" name="Contenido" id="Contenido-modificar" />
+          <div class="buttons">
+            <button class="cancelar" type="button">Cancelar</button>
+            <button class="modificar" type="button">Modificar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="vent-emergente-eliminar">
+      <div class="container-eliminar">
+        <span class="title">¿Deseas Eliminar la nota?</span>
+        <div class="buttons">
+          <button class="cancelar" type="button">Cancelar</button>
+          <button class="eliminar" type="button">Eliminar</button>
+        </div>
+      </div>
+    </section> 
+
+    <section class="vent-emergente-finalizar">
+      <div class="container-finalizar">
+        <span class="title">¿Deseas finalizar la nota?</span>
+        <div class="buttons">
+          <button class="cancelar" type="button">Cancelar</button>
+          <button class="finalizar" type="button">Finalizar</button>
+        </div>
+      </div>
+    </section> 
 
     <footer>
       <div class="info-contact">
-        <span class="title">Correo Electronico</span>
-        <span class="mail"></span>
+        <span class="title">Correo Electronico:</span>
+        <span class="mail">xavi.debegnach@gmail.com</span>
       </div>
       <div class="copyright">
         <p>Todos los derechos reservados a Xavier Debegnach</p>
