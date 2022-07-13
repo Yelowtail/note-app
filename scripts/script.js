@@ -3,15 +3,67 @@ let cancelBtn = document.querySelectorAll(".cancelar");
 let agregarBtn = document.querySelector(".agregar");
 let modificarBtn = document.querySelector(".modificar");
 let eliminarBtn = document.querySelector(".eliminar");
+let finalizarBtn = document.querySelector(".finalizar");
 let crear = document.querySelector(".crear");
-let inicio = document.querySelector(".inicio");
-let ventActive = "";
-let idMod = null;
+let misNotas = document.querySelector(".mis-notas");
+let notasFinalizadas = document.querySelector(".notas-fin");
+let cantNotas = document.querySelectorAll('div[class^="nota-"]').length;
+let btnsModificar = document.querySelectorAll("[class^='btn-modificar-']");
+let btnsEliminar = document.querySelectorAll("[class^='btn-eliminar-']");
+let btnsFinalizar = document.querySelectorAll("[class^='btn-finalizar-']");
+let container = document.querySelector(".note-container");
 
+let ventActive = "";
+let idTarget = null;
 let notas = [];
 
-function crearNota(titulo, contenido, creacion) {
-  return { titulo, contenido, creacion, finalizacion: null };
+const c = console.log
+
+function actualizarDatos() {
+  btnsModificar = document.querySelectorAll("[class^='btn-modificar-']");
+  btnsEliminar = document.querySelectorAll("[class^='btn-eliminar-']");
+  btnsFinalizar = document.querySelectorAll("[class^='btn-finalizar-']");
+
+  let formAgregar = document.querySelector(".container-agregar form");
+  formAgregar.reset();
+
+  btnsModificar.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      VentEmerg("modificar");
+      idTarget = btn.classList[0].split("-")[2];
+      leer(idTarget);
+      actualizarDatos();
+
+    });
+  });
+
+  btnsEliminar.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      idTarget = btn.classList[0].split("-")[2];
+      VentEmerg("eliminar");
+      actualizarDatos();
+    });
+  });
+
+  btnsFinalizar.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      VentEmerg("finalizar");
+      idTarget = btn.classList[0].split("-")[2];
+      actualizarDatos();
+    });
+  });
+}
+actualizarDatos();
+
+function crearNota(id, titulo, contenido, creacion) {
+  return {
+    id,
+    titulo,
+    contenido,
+    creacion,
+    finalizacion: null,
+    finished: false,
+  };
 }
 
 function limpiarLista() {
@@ -19,35 +71,7 @@ function limpiarLista() {
   contenedor.innerHTML = "";
 }
 
-let cantNotas = document.querySelectorAll('div[class^="nota-"]').length;
-
-let btnsModificar = document.querySelectorAll(".btn-modificar");
-let btnsEliminar = document.querySelectorAll(".btn-eliminar");
-
-function actualizarDatos() {
-  console.log(notas)
-  btnsModificar = document.querySelectorAll(".btn-modificar");
-  btnsEliminar = document.querySelectorAll(".btn-eliminar");
-  let formAgregar = document.querySelector(".container-agregar form");
-  formAgregar.reset();
-  btnsModificar.forEach((btn, idx) => {
-    btn.addEventListener("click", () => {
-      VentEmerg("modificar");
-      leer(idx);
-      idMod = idx;
-    });
-  });
-  btnsEliminar.forEach((btn, idx) => {
-    btn.addEventListener("click", () => {
-      VentEmerg("eliminar");
-      idMod = idx;
-    });
-  });
-}
-actualizarDatos();
-
 function VentEmerg(vent) {
-  actualizarDatos();
   ventActive = vent;
 
   let ventEmergente = document.querySelector(`.vent-emergente-${vent}`);
@@ -59,6 +83,7 @@ function VentEmerg(vent) {
       ventEmergente.classList.contains("active")
     ) {
       ventEmergente.classList.toggle("active");
+      actualizarDatos()
     }
   });
 }
@@ -96,20 +121,20 @@ function getDate() {
   return fecha;
 }
 
-function agregarNota(notaParametro) {
+function constructNota(ObjNota, id) {
   let nota = document.createElement("div");
-  nota.classList.add(`nota-${cantNotas}`);
-  nota.id = `nota-${cantNotas}`;
+  nota.classList.add(`nota-${id}`);
+  nota.id = `nota-${id}`;
 
   let spans = document.createElement("div");
   spans.classList.add("spans");
 
   let noteTitle = document.createElement("h4");
   noteTitle.classList.add("note-title");
-  noteTitle.textContent = notaParametro.titulo;
+  noteTitle.textContent = ObjNota.titulo;
   let noteCont = document.createElement("p");
   noteCont.classList.add("note-cont");
-  noteCont.textContent = notaParametro.contenido;
+  noteCont.textContent = ObjNota.contenido;
 
   spans.append(noteTitle, noteCont);
 
@@ -120,48 +145,104 @@ function agregarNota(notaParametro) {
   let icon2 = document.createElement("i");
   let icon3 = document.createElement("i");
 
-  icon1.classList = ["btn-agregar fa-regular fa-circle-check"];
+  icon1.classList = [`btn-finalizar-${id} fa-regular fa-circle-check`];
   btns.append(icon1);
-  icon2.classList = ["btn-eliminar fa-regular fa-trash-can"];
+  icon2.classList = [`btn-eliminar-${id} fa-regular fa-trash-can`];
   btns.append(icon2);
-  icon3.classList = ["btn-modificar fa-regular fa-pen-to-square"];
+  icon3.classList = [`btn-modificar-${id} fa-regular fa-pen-to-square`];
   btns.append(icon3);
 
   nota.append(spans, btns);
 
-  let container = document.querySelector(".note-container");
   container.appendChild(nota);
+}
 
-  cantNotas++
-
+function agregarNota(notaParametro) {
+  constructNota(notaParametro, cantNotas);
+  cantNotas++;
   VentEmerg("agregar");
 }
 
-addNoteBtn.addEventListener("click", () => VentEmerg("agregar"));
+function cargarNotas(state) {
+  limpiarLista();
+  notas.forEach((nota) => {
+    if (nota.finished === state) {
+      constructNota(nota, nota.id)
+    }
+  });
+  actualizarDatos();
+}
+cargarNotas(false);
+
+function finalizarNota(id) {
+  let nota = notas.find((nota) => nota.id == id);
+  nota.finished = true
+  nota.finalizacion = getDate()
+}
+
+function eliminarNota(id){
+  let nota = document.getElementById(`nota-${id}`);
+  nota.remove();
+  let idNota = notas.findIndex(n => n.id == id)
+  notas.splice(idNota,1)
+}
+
+addNoteBtn.addEventListener("click", () => {
+  VentEmerg("agregar");
+  actualizarDatos();
+});
 
 cancelBtn.forEach((btn) => {
   btn.addEventListener("click", () => VentEmerg(ventActive));
+  actualizarDatos();
 });
 
-crear.addEventListener("click", () => VentEmerg("agregar"));
-
-inicio.addEventListener("click", () => {});
+crear.addEventListener("click", () => {
+  VentEmerg("agregar");
+  actualizarDatos();
+});
 
 agregarBtn.addEventListener("click", () => {
   let titulo = document.querySelector("#Nota-agregar").value;
   let cont = document.querySelector("#Contenido-agregar").value;
-  let nota = crearNota(titulo, cont, getDate());
-  notas.push(nota);
-  agregarNota(nota);
+
+  if(titulo == '' || cont == ''){
+    alert("El titulo y el contenido no pueden estar vacios")
+  }else{
+    let nota = crearNota(cantNotas, titulo, cont, getDate());
+    notas.push(nota);
+    agregarNota(nota);
+  }
+  actualizarDatos();
 });
 
 modificarBtn.addEventListener("click", () => {
-  modificar(idMod);
+  modificar(idTarget);
   VentEmerg("modificar");
+  actualizarDatos();
 });
 
 eliminarBtn.addEventListener("click", () => {
-  let nota = document.getElementById(`nota-${idMod}`);
-  nota.remove();
+  eliminarNota(idTarget)
   VentEmerg("eliminar");
+  actualizarDatos();
 });
+
+finalizarBtn.addEventListener("click", () => {
+  VentEmerg("finalizar");
+  finalizarNota(idTarget)
+  cargarNotas(false);
+});
+
+misNotas.addEventListener("click", () => {
+  let titulo = document.querySelector(".title-notas");
+  titulo.textContent = "Mis Notas";
+  cargarNotas(false);
+});
+
+notasFinalizadas.addEventListener("click", () => {
+  let titulo = document.querySelector(".title-notas");
+  titulo.textContent = "Notas Finalizadas";
+  cargarNotas(true);
+});
+
